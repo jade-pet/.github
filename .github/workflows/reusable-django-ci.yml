@@ -3,7 +3,7 @@ name: Django CI (reusable)
 # Reusable backend gate: lint + system check + tests. Call from a Django repo with:
 #   jobs:
 #     django-ci:
-#       uses: meowmoir/.github/.github/workflows/reusable-django-ci.yml@main
+#       uses: jade-pet/.github/.github/workflows/reusable-django-ci.yml@main
 # uv brings its own Python (requires-python pinned in the repo's pyproject); dev settings use
 # sqlite + eager Celery, so no Postgres/Redis is needed for the gate.
 on:

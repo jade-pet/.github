@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #
-# Bootstrap the Meowmoir workspace root.
+# Bootstrap the Jade workspace root.
 #
 # Writes the one-line shim `justfile` at the workspace root so `just` finds the
 # canonical orchestrator in this repo (.github/workspace/justfile). Run once
-# after cloning the meowmoir-* repos and the .github repo into a shared parent:
+# after cloning the jade-* repos and the .github repo into a shared parent:
 #
 #     ./.github/workspace/bootstrap.sh
 #
@@ -22,7 +22,7 @@ root_justfile="$workspace_root/justfile"
 # Command substitution strips the trailing newline; `printf '%s\n'` re-adds
 # exactly one when writing, so the file stays single-newline-terminated.
 shim="$(cat <<'EOF'
-# Meowmoir workspace orchestrator — recipes live in the org `.github` repo.
+# Jade workspace orchestrator — recipes live in the org `.github` repo.
 # See .github/workspace/README.md.
 import '.github/workspace/justfile'
 EOF

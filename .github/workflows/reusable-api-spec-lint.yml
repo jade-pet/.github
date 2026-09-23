@@ -1,12 +1,12 @@
 name: API spec lint (reusable)
 
 # Reusable design-time API gate: generate the OpenAPI spec from drf-spectacular and lint it with
-# Spectral against the org-shared ruleset (spectral/meowmoir.yaml in this .github repo). Fails on
+# Spectral against the org-shared ruleset (spectral/jade.yaml in this .github repo). Fails on
 # ERRORS only; AIP-leaning rules are warnings that ratchet to error as the API migrates (D9/D10).
 # Call from a Django/DRF repo with:
 #   jobs:
 #     api-spec-lint:
-#       uses: meowmoir/.github/.github/workflows/reusable-api-spec-lint.yml@main
+#       uses: jade-pet/.github/.github/workflows/reusable-api-spec-lint.yml@main
 on:
   workflow_call:
 
@@ -20,10 +20,10 @@ jobs:
     steps:
       - name: Checkout caller repo
         uses: actions/checkout@v5
-      - name: Checkout shared harness ruleset (meowmoir/.github)
+      - name: Checkout shared harness ruleset (jade-pet/.github)
         uses: actions/checkout@v5
         with:
-          repository: meowmoir/.github
+          repository: jade-pet/.github
           path: .harness
       - name: Install uv
         run: curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -34,4 +34,4 @@ jobs:
       - name: Generate OpenAPI spec
         run: uv run python manage.py spectacular --file openapi.yaml
       - name: Spectral lint (fail on error)
-        run: npx -y @stoplight/spectral-cli@latest lint openapi.yaml --ruleset .harness/spectral/meowmoir.yaml --fail-severity error
+        run: npx -y @stoplight/spectral-cli@latest lint openapi.yaml --ruleset .harness/spectral/jade.yaml --fail-severity error
