@@ -19,19 +19,20 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout caller repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Checkout shared harness ruleset (jade-pet/.github)
-        uses: actions/checkout@v5
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: jade-pet/.github
           path: .harness
       - name: Install uv
-        run: curl -LsSf https://astral.sh/uv/install.sh | sh
-      - name: Add uv to PATH
-        run: echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+        uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
       - name: Sync deps
         run: uv sync
       - name: Generate OpenAPI spec
         run: uv run python manage.py spectacular --file openapi.yaml
       - name: Spectral lint (fail on error)
-        run: npx -y @stoplight/spectral-cli@latest lint openapi.yaml --ruleset .harness/spectral/jade.yaml --fail-severity error
+        run: npx -y @stoplight/spectral-cli@6.16.3 lint openapi.yaml --ruleset .harness/spectral/jade.yaml --fail-severity error
