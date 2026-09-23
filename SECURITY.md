@@ -13,5 +13,5 @@ days.
 
 ## Data handling
 
-Meowmoir keeps private user data in the user's own iCloud (CloudKit); the backend stores only
+Jade keeps private user data in the user's own iCloud (CloudKit); the backend stores only
 non-private operational data and never persists photos. Reports about data handling are welcome.

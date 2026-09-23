@@ -1,6 +1,6 @@
 # Contributing
 
-Conventions shared across all Meowmoir repos. Per-repo `CONTRIBUTING.md` overrides this.
+Conventions shared across all Jade repos. Per-repo `CONTRIBUTING.md` overrides this.
 
 ## Workflow
 
