@@ -1,7 +1,7 @@
-# Meowmoir — workspace-level dev orchestration.
+# Jade — workspace-level dev orchestration.
 #
-# Canonical copy. To use it, run the bootstrap script from your Meowmoir
-# workspace root — the directory holding the meowmoir-* repos and the `.github`
+# Canonical copy. To use it, run the bootstrap script from your Jade
+# workspace root — the directory holding the jade-* repos and the `.github`
 # checkout:
 #
 #     ./.github/workspace/bootstrap.sh
@@ -16,33 +16,33 @@ _default:
 
 # Forward a recipe to the backend repo, e.g. `just backend migrate`
 backend *args:
-    cd meowmoir-backend && just {{args}}
+    cd jade-backend && just {{args}}
 
 # Forward a recipe to the iOS repo, e.g. `just ios run`
 ios *args:
-    cd meowmoir-ios && just {{args}}
+    cd jade-ios && just {{args}}
 
 # Forward a recipe to the docs repo, e.g. `just docs serve`
 docs *args:
-    cd meowmoir-docs && just {{args}}
+    cd jade-docs && just {{args}}
 
-# Forward a recipe to the desktop-pet repo, e.g. `just desktop run`
-desktop *args:
-    cd meowmoir-desktop && just {{args}}
+# Forward a recipe to the Mac app repo, e.g. `just mac run` (renamed from `desktop`; see README.md)
+mac *args:
+    cd jade-macos && just {{args}}
 
 # Run all automated test suites (backend + iOS)
 test:
-    cd meowmoir-backend && just test
-    cd meowmoir-ios && just test
+    cd jade-backend && just test
+    cd jade-ios && just test
 
 # Core-loop dev: start the backend in the background, then launch the iOS app
 dev:
     #!/usr/bin/env bash
     set -euo pipefail
-    (cd meowmoir-backend && nohup just serve > /tmp/meowmoir-backend.log 2>&1 &)
+    (cd jade-backend && nohup just serve > /tmp/jade-backend.log 2>&1 &)
     sleep 3
-    cd meowmoir-ios && just run
-    echo "Backend log: /tmp/meowmoir-backend.log"
+    cd jade-ios && just run
+    echo "Backend log: /tmp/jade-backend.log"
 
 # Stop the background dev backend started by `just dev`
 stop:
