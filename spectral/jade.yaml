@@ -1,4 +1,4 @@
-# Meowmoir API ruleset — design-time linting for the agentic harness (Spectral).
+# Jade API ruleset — design-time linting for the agentic harness (Spectral).
 # Org-shared: every backend repo's api-spec-lint job lints its drf-spectacular spec against this.
 # Seed toward Google AIP (aip.dev) + Zalando; extends Spectral's built-in OpenAPI ruleset.
 # ERRORS fail CI; WARNINGS are advisory and ratchet to error as the API migrates to AIP (see D9).
@@ -15,7 +15,7 @@ rules:
   oas3-unused-component: off
 
   # --- AIP-leaning house rules (warn now, ratchet to error post-migration) ---
-  meowmoir-version-prefix:
+  jade-version-prefix:
     description: "Paths should sit under a /v1/ (or /api/v1/) version prefix (AIP-185)."
     given: "$.paths[*]~"
     severity: warn
@@ -23,14 +23,14 @@ rules:
       function: pattern
       functionOptions:
         match: "^/(api/)?v1/"
-  meowmoir-operation-summary:
+  jade-operation-summary:
     description: "Every operation should carry a short summary (thick descriptions help agents)."
     given: "$.paths[*][get,post,put,patch,delete]"
     severity: warn
     then:
       field: summary
       function: truthy
-  meowmoir-aip-custom-method:
+  jade-aip-custom-method:
     description: "Non-CRUD AI actions should be AIP custom methods (POST .../photos:recognizeMood), not REST verb paths like /mood."
     given: "$.paths[*]~"
     severity: warn

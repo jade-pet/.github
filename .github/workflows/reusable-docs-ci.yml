@@ -4,7 +4,7 @@ name: Docs CI (reusable)
 # internal-anchor check (catches broken #fragment links, incl. CJK-slug breakage). Call with:
 #   jobs:
 #     docs-ci:
-#       uses: meowmoir/.github/.github/workflows/reusable-docs-ci.yml@main
+#       uses: jade-pet/.github/.github/workflows/reusable-docs-ci.yml@main
 # Note: Mermaid syntax is validated locally (mermaid-cli); not gated here to avoid a headless-
 # Chromium dependency in CI.
 on:
