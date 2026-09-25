@@ -1,16 +1,23 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/jade-pet/.github/main/profile/logo.png" width="120" alt="Jade"/>
+<img src="https://raw.githubusercontent.com/jade-the-cat/.github/main/profile/logo.png" width="120" alt="Jade"/>
 
 # Jade
 
-**A cat mood diary on iPhone and a desktop pet on the Mac** — with the same cat, Jade, on both.
+**Your own cat, as a pixel twin on your iPhone and your Mac desktop.**
 
-📔 **Mood diary (iPhone)** — snap a photo of your cat; Jade reads the mood and writes a short diary
-entry in the cat's own voice.
+*Keep your cat close, like jade.* · 让你的猫，一直在身边。
 
-🐈 **Desktop pet (Mac)** — Jade lives on your desktop, wanders along the Dock and your windows, and
-curls up on the break screen when it is time to rest.
+🐈 **A pixel twin of your cat** — add a photo and Jade draws your cat in your cat's own
+colours. A mirror of the real cat, not a virtual pet: nothing to feed, no meters, no guilt.
+
+📔 **iPhone (beta on TestFlight)** — the twin lives on the Home screen. Log meals, weight, care
+and shared albums for free; with Jade+, Jade reads the mood in a photo and your cat writes the
+diary line.
+
+🖥️ **Mac (free download)** — a desktop pet that walks the Dock and your windows and calls your
+breaks. Jade himself keeps you company until your cat's twin moves in with the Mac App Store
+version, coming soon.
 
 🔒 **Privacy-first** — your private data lives in your own iCloud, never on our servers. Photos are
 analysed in transit and never stored or logged.
@@ -19,5 +26,6 @@ analysed in transit and never stored or logged.
 
 ---
 
-Most repositories here are private while the product is in development. The Mac app is public:
-[jade-macos](https://github.com/jade-pet/jade-macos).
+Most repositories here are private while the product is in development. Mac releases are public:
+[jade-releases](https://github.com/jade-the-cat/jade-releases). The website is
+[jadethecat.com](https://jadethecat.com).
