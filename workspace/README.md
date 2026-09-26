@@ -14,7 +14,7 @@ After cloning the `jade-*` repos and this `.github` repo into a shared
 parent directory, run the bootstrap script from the workspace root:
 
 ```sh
-cd <workspace-root>   # the dir holding jade-backend, jade-ios, .github, …
+cd <workspace-root>   # the dir holding jade, jade-backend, .github, …
 ./.github/workspace/bootstrap.sh
 ```
 
@@ -37,7 +37,7 @@ it imports — and the bootstrap script — are tracked here.
 | `just stop` | Stop the background dev backend |
 | `just test` | Run the backend + iOS test suites |
 | `just backend <r>` | Forward to `jade-backend`'s justfile, e.g. `just backend migrate` |
-| `just ios <r>` | Forward to `jade-ios`'s justfile, e.g. `just ios run` |
+| `just ios <r>` | Forward to `jade`'s justfile, e.g. `just ios run` (a checkout still named `jade-ios`, from before the 2026-09-26 rename, works too) |
 | `just docs <r>` | Forward to `jade-docs`'s justfile, e.g. `just docs serve` |
 | `just mac <r>` | Forward to `jade-macos`'s justfile, e.g. `just mac run` (renamed from `desktop`: the old desktop-pet prototype is retired and `jade-macos` is the real Mac app) |
 

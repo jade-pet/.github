@@ -10,6 +10,10 @@
 # See README.md next to this file. Each repo also has its own justfile; this
 # forwards to them and adds cross-repo helpers.
 
+# The app repository, jade-the-cat/jade (named jade-ios until 2026-09-26). A checkout
+# cloned before the rename may still sit in `jade-ios`; use it until it is renamed.
+app := if path_exists("jade") == "true" { "jade" } else { "jade-ios" }
+
 # List recipes
 _default:
     @just --list
@@ -18,9 +22,9 @@ _default:
 backend *args:
     cd jade-backend && just {{args}}
 
-# Forward a recipe to the iOS repo, e.g. `just ios run`
+# Forward a recipe to the app repo (iPhone and Mac apps), e.g. `just ios run`
 ios *args:
-    cd jade-ios && just {{args}}
+    cd {{app}} && just {{args}}
 
 # Forward a recipe to the docs repo, e.g. `just docs serve`
 docs *args:
@@ -33,7 +37,7 @@ mac *args:
 # Run all automated test suites (backend + iOS)
 test:
     cd jade-backend && just test
-    cd jade-ios && just test
+    cd {{app}} && just test
 
 # Core-loop dev: start the backend in the background, then launch the iOS app
 dev:
@@ -41,7 +45,7 @@ dev:
     set -euo pipefail
     (cd jade-backend && nohup just serve > /tmp/jade-backend.log 2>&1 &)
     sleep 3
-    cd jade-ios && just run
+    cd {{app}} && just run
     echo "Backend log: /tmp/jade-backend.log"
 
 # Stop the background dev backend started by `just dev`
